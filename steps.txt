@@ -1,0 +1,12 @@
+We will be using the dartsv library for two main purposes:
+- generate wallet addresses when trying to recieve tokens
+- build the transactions to be signed by the strongbox 
+
+To generate wallet addresses:
+- We export our public key from the strongbox as byte array
+- we use to dartsv lib to construct an SVPublic key from the byte array using SVPublicKey.fromDER()
+- we convert the SVPublicKey to the address using the toAddress() method of SVPublicKey.
+
+To sign transactions:
+- First we build the transactions using utxos and other necessary inputs using dartsv
+- we pass the built transaction to the strongbox to sign
